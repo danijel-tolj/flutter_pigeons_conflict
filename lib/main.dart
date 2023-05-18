@@ -63,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               message,
               style: Theme.of(context).textTheme.headlineMedium,
+              textAlign: TextAlign.center,
             ),
           ],
         ),
