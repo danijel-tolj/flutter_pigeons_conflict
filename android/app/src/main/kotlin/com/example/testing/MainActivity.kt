@@ -1,8 +1,8 @@
 package com.example.testing
 
+import com.dtolj.image_picker.ImagePickerApi
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
-import io.flutter.plugins.image_picker.ImagePickerApi
 
 class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -14,7 +14,7 @@ class MainActivity : FlutterActivity() {
 }
 
 class PigeonApiImplementation : ImagePickerApi {
-    override fun pickImages(identifier: Long): Long {
-        return 123
+    override fun pickImages(): String {
+        return "Message received from Android"
     }
 }

@@ -18,12 +18,12 @@ class ImagePickerApi {
 
   static const MessageCodec<Object?> codec = StandardMessageCodec();
 
-  Future<int> pickImages(int arg_identifier) async {
+  Future<String> pickImages() async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
         'dev.flutter.pigeon.ImagePickerApi.pickImages', codec,
         binaryMessenger: _binaryMessenger);
     final List<Object?>? replyList =
-        await channel.send(<Object?>[arg_identifier]) as List<Object?>?;
+        await channel.send(null) as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -41,7 +41,7 @@ class ImagePickerApi {
         message: 'Host platform returned null value for non-null return value.',
       );
     } else {
-      return (replyList[0] as int?)!;
+      return (replyList[0] as String?)!;
     }
   }
 }
